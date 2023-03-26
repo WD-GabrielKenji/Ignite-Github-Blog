@@ -22,7 +22,8 @@
 
 ## :computer: <strong id="projeto">Sobre o Projeto </strong>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rLSJ5VuUiDE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+![Home Page](./public/ilustracaoHome.png)
+![Home Post](./public/ilustracaoPost.png)
 
 <p align="justify">O <strong>Github Blog</strong> é uma aplicação voltada ao <strong>blog pessoal</strong> contendo as postagens de issues em um repositório.</p>
 
