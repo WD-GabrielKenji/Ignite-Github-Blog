@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { api } from '../../lib/axios'
 import { IPost } from '../Blog'
 import { PostHeader } from './Components/PostHeader'
+import { PostContent } from './Components/PostContent'
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const repoName = import.meta.env.VITE_GITHUB_REPONAME
@@ -35,6 +36,7 @@ export function Post() {
   return (
     <>
       <PostHeader isLoading={isLoading} postData={postData} />
+      {!isLoading && <PostContent content={postData.body} />}
     </>
   )
 }
