@@ -6,6 +6,7 @@ import { Profile } from './Components/Profile'
 import { SearchForm } from './Components/SearchForm'
 
 import { PostsListContainer } from './styles'
+import { Spinner } from '../../Components/Spinner'
 
 const username = import.meta.env.VITE_GITHUB_USERNAME
 const repoName = import.meta.env.VITE_GITHUB_REPONAME
@@ -24,35 +25,39 @@ export interface IPost {
 
 export function Blog() {
   const [posts, setPosts] = useState<IPost[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  const getPosts = useCallback(
-    async (query: string = '') => {
-      try {
-        const response = await api.get(
-          `/search/issues?q=${query}%20repo:${username}/${repoName}`,
-        )
+  const getPosts = useCallback(async (query: string = '') => {
+    try {
+      setIsLoading(true)
+      const response = await api.get(
+        `/search/issues?q=${query}%20repo:${username}/${repoName}`,
+      )
 
-        setPosts(response.data.items)
-      } finally {
-      }
-    },
-    [posts],
-  )
+      setPosts(response.data.items)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [])
 
   useEffect(() => {
     getPosts()
-  }, [])
+  }, [getPosts])
 
   return (
     <>
       <Profile />
       <SearchForm postsLength={posts.length} getPosts={getPosts} />
 
-      <PostsListContainer>
-        {posts.map((post) => (
-          <Post key={post.number} post={post} />
-        ))}
-      </PostsListContainer>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <PostsListContainer>
+          {posts.map((post) => (
+            <Post key={post.number} post={post} />
+          ))}
+        </PostsListContainer>
+      )}
     </>
   )
 }
