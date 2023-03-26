@@ -22,12 +22,8 @@
 
 ## :computer: <strong id="projeto">Sobre o Projeto </strong>
 
-<<<<<<< HEAD
 ![Home Page](./public/ilustracaoHome.png)
 ![Home Post](./public/ilustracaoPost.png)
-=======
-
->>>>>>> bb2df459f403eb95dff15288f0e702e0564687f6
 
 <p align="justify">O <strong>Github Blog</strong> é uma aplicação voltada ao <strong>blog pessoal</strong> contendo as postagens de issues em um repositório.</p>
 
