@@ -46,7 +46,7 @@ export function Blog() {
   return (
     <>
       <Profile />
-      <SearchForm />
+      <SearchForm postsLength={posts.length} getPosts={getPosts} />
 
       <PostsListContainer>
         {posts.map((post) => (
